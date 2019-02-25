@@ -1,0 +1,15 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: gateway-app
+zuul:
+  routes:
+    products:
+      path: /products/**
+      serviceId: product-service
+      url: http://localhost:8080/v1/products
+    something:
+      path: /hello/**
+      serviceId: product-service
+      url: http://localhost:8080/v1/something
